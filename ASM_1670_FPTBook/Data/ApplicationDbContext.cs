@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using ASM_1670_FPTBook.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace ASM_1670_FPTBook.Data
@@ -9,5 +10,9 @@ namespace ASM_1670_FPTBook.Data
             : base(options)
         {
         }
+
+        public DbSet<Book> books { get; set; }
+        public DbSet<Genre> genres { get; set; }
+        public DbSet<Publisher> publishers { get; set; }
     }
 }

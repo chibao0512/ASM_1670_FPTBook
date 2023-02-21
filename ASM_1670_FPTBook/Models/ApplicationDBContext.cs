@@ -8,7 +8,8 @@ namespace ASM_1670_FPTBook.Models
         {
 
         }
-        public DbSet<Book> books { get; set; }
+        // db set
+        public DbSet<Book> books { get; set; } 
         public DbSet<Genre> genres { get; set; }
         public DbSet<Publisher> publishers { get; set; }
     }

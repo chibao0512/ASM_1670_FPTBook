@@ -52,7 +52,7 @@ namespace ASM_1670_FPTBook.Controllers
             if(ModelState.IsValid)
             {
                 publisher.Publisher_Id = id;
-                _db.publishers.Remove(publisher);
+                _db.publishers.Update(publisher);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }

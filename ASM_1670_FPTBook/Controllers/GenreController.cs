@@ -1,12 +1,13 @@
-﻿using ASM_1670_FPTBook.Models;
+﻿using ASM_1670_FPTBook.Data;
+using ASM_1670_FPTBook.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ASM_1670_FPTBook.Controllers
 {
     public class GenreController : Controller
     {
-        private readonly ApplicationDBContext _db;
-        public GenreController(ApplicationDBContext db)
+        private readonly ApplicationDbContext _db;
+        public GenreController(ApplicationDbContext db)
         {
             _db = db;
         }
@@ -14,8 +15,8 @@ namespace ASM_1670_FPTBook.Controllers
         // index
         public IActionResult Index()
         {
-            IEnumerable<Genre> genres = _db.genres.ToList();
-            return View(genres);
+            IEnumerable<Genre> genre = _db.genres.ToList();
+            return View(genre);
         }
 
         // create
@@ -24,6 +25,7 @@ namespace ASM_1670_FPTBook.Controllers
             return View();
         }
 
+        [HttpPost]
         public IActionResult Create(Genre genre)
         {
             if(ModelState.IsValid)
@@ -51,7 +53,7 @@ namespace ASM_1670_FPTBook.Controllers
             if(ModelState.IsValid)
             {
                 genre.Gen_Id = id;
-                _db.genres.Add(genre);
+                _db.genres.Update(genre);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }

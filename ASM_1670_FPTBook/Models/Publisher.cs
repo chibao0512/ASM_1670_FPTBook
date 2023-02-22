@@ -9,7 +9,7 @@ namespace ASM_1670_FPTBook.Models
         public int Publisher_Id { get; set; }
         [Required]
         [StringLength(50)]
-        public string Publisher_Name { get; }
+        public string Publisher_Name { get; set; }
         public string Publisher_Pseudonym { get; set; }
 
     }
